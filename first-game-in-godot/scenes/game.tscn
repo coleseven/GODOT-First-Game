@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://8cba00q1gt45"]
+[gd_scene load_steps=15 format=3 uid="uid://8cba00q1gt45"]
 
+[ext_resource type="Script" uid="uid://4p38ti1call" path="res://scripts/game_manager.gd" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://urnt5df5vda6" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://ce4rq6kvsr7nh" path="res://assets/sprites/world_tileset.png" id="1_yqjtg"]
+[ext_resource type="FontFile" uid="uid://cinvl366n5y22" path="res://assets/fonts/PixelOperator8.ttf" id="2_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://cng805tlvkm3g" path="res://scenes/platform.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://tcujlkl0stju" path="res://scenes/coin.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://ckab7d7guojl" path="res://scenes/killzone.tscn" id="5_iywne"]
@@ -216,6 +218,21 @@ _data = {
 
 [node name="Game" type="Node2D"]
 
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_gee14")
+
+[node name="ScoreLabel" type="Label" parent="GameManager"]
+offset_left = 953.0
+offset_top = -45.0
+offset_right = 1064.0
+offset_bottom = -22.0
+theme_override_fonts/font = ExtResource("2_0tnpc")
+theme_override_font_sizes/font_size = 8
+text = "Collect Coins!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_lbhrr")
 format = 2
@@ -282,3 +299,32 @@ position = Vector2(-97, -27)
 
 [node name="slime" parent="." instance=ExtResource("6_p57ef")]
 position = Vector2(-120, -11)
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="Labels"]
+offset_left = -126.0
+offset_top = -81.0
+offset_right = 56.0
+offset_bottom = -29.0
+theme_override_fonts/font = ExtResource("2_0tnpc")
+theme_override_font_sizes/font_size = 8
+text = "Space to jump."
+
+[node name="Label2" type="Label" parent="Labels"]
+offset_left = 46.0
+offset_top = 29.0
+offset_right = 157.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("2_0tnpc")
+theme_override_font_sizes/font_size = 8
+text = "Falling Hurts..."
+
+[node name="Label3" type="Label" parent="Labels"]
+offset_left = 111.0
+offset_top = -49.0
+offset_right = 222.0
+offset_bottom = -26.0
+theme_override_fonts/font = ExtResource("2_0tnpc")
+theme_override_font_sizes/font_size = 8
+text = "Collect Coins!"
